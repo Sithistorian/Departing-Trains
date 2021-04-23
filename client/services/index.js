@@ -1,2 +1,2 @@
-exports.example = require('./example');
+exports.requests = require('./requests');
 

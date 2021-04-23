@@ -1,5 +1,4 @@
 import React from 'react';
-import Apattern from './components/Apattern';
 
 class App extends React.Component {
 
