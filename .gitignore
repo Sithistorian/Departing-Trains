@@ -3,3 +3,7 @@
 
 # Dependency directories
 node_modules/
+
+# Bundles
+/public/bundle.js
+package-lock.json
