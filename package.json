@@ -1,13 +1,12 @@
 {
-  "name": "react-express-node-mysql-boiler",
+  "name": "Departing-Trains",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
-    "start": "nodemon server -w",
-    "db": "mysql -u root < server/schema.sql"
+    "start": "nodemon server -w"
   },
   "keywords": [],
   "author": "",
@@ -23,8 +22,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
