@@ -17,7 +17,7 @@ const StopsList = function ({stops, routeDirections, stopSelected, selectStopId}
   </select>
   )
   :
-  <Directions/>
+  <Directions directions={routeDirections}/>
 }
 
 export default StopsList;
