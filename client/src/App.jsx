@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
 
-        <Routes />
+        <Routes routes={this.state.routes}/>
 
       </div>
     )

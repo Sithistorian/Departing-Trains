@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Routes = function (props) {
+const Routes = function ({routes}) {
 
 return (
-  <div>
-    Routes is working
-  </div>
+  <select>
+    <option>Select Your Route</option>
+    {
+      routes.map(route => {
+        return <option>{route.attributes.long_name}</option>
+      })
+    }
+  </select>
 )
 }
 
