@@ -7,7 +7,7 @@ return (
     <option>Select Your Route</option>
     {
       routes.map(route => {
-        return <option>{route.attributes.long_name}</option>
+        return <option key={route.id}>{route.attributes.long_name}</option>
       })
     }
   </select>

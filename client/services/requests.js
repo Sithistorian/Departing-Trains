@@ -17,8 +17,25 @@ const getRoutes = function(callback) {
 
 }
 
+const getStops = function(routeID, callback) {
+  var config = {
+    method: 'get',
+    url: `https://api-v3.mbta.com/stops?filter%5Broute%5D=${routeID}`,
+    headers: { }
+  };
+
+  axios(config)
+  .then(function (response) {
+    callback(JSON.stringify(response.data))
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
 module.exports = {
 
-  getRoutes
+  getRoutes,
+  getStops
 
 }
