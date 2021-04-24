@@ -1,4 +1,5 @@
 import React from 'react';
+import Directions from './Directions';
 
 const StopsList = function ({stops, routeDirections, stopSelected, selectStopId}) {
 
@@ -16,7 +17,7 @@ const StopsList = function ({stops, routeDirections, stopSelected, selectStopId}
   </select>
   )
   :
-  <div>A New Component</div>
+  <Directions/>
 }
 
 export default StopsList;
