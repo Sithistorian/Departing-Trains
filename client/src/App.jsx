@@ -59,6 +59,7 @@ class App extends React.Component {
         routes={this.state.routes}
         routeSelected={this.state.routeSelected}
         selectRoute={this.selectRoute}
+        stops={this.state.stops}
         />
 
       </div>
