@@ -2,6 +2,8 @@ import React from 'react';
 
 const Prediction = function({ setPrediction, predictions }) {
 
+
+
   return !predictions ? (
       <form onSubmit={setPrediction}>
       <button type="submit">Submit</button>

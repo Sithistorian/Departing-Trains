@@ -49,10 +49,28 @@ const getPrediction = function(routeId, stopId, directionId, callback) {
   });
 }
 
+const getVehicleInfo = function(vehicleId, callback){
+
+  const config = {
+    method: 'get',
+    url: `https://api-v3.mbta.com/vehicles/${vehicleId}?include=stop`,
+  };
+
+  axios(config)
+  .then((response) => {
+    callback(response.data.data)
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+}
+
 module.exports = {
 
   getRoutes,
   getStops,
-  getPrediction
+  getPrediction,
+  getVehicleInfo
 
 }
