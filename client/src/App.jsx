@@ -1,5 +1,8 @@
 import React from 'react';
 
+//import child components
+import Routes from './components/Routes';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -22,7 +25,11 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>React is Working</div>
+      <div>
+
+        <Routes />
+
+      </div>
     )
   }
 
