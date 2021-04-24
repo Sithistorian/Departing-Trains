@@ -1,17 +1,18 @@
 import React from 'react';
 import StopsList from './StopsList';
 
-const Routes = function ({routes, routeSelected, selectRoute, stops}) {
+const Routes = function ({routes, routeSelected, selectRouteId, stops, routeDirections, stopSelected, setRouteDirections, selectStopId}) {
 
 return stops.length === 0 ? (
-  <select value={routeSelected} onChange={selectRoute}>
+  <select value={routeSelected} onChange={selectRouteId}>
     <option value={''}>Select Your Route</option>
     {
       routes.map(route => {
         return (
         <option
         key={route.id}
-        value={route.id}>
+        value={route.id}
+        >
         {route.attributes.long_name}
         </option>
         )
@@ -20,7 +21,13 @@ return stops.length === 0 ? (
   </select>
 )
 :
-<StopsList stops={stops}/>
+<StopsList
+stops={stops}
+routes={routes}
+routeDirections={routeDirections}
+setRouteDirections={setRouteDirections}
+stopSelected={stopSelected}
+selectStopId={selectStopId}/>
 }
 
 export default Routes;

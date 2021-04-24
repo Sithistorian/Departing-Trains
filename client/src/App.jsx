@@ -10,11 +10,15 @@ class App extends React.Component {
     this.state = {
       routes: [],
       routeSelected: '',
-      stops: []
+      routeDirections: [],
+      stops: [],
+      stopSelected: ''
     }
     //bindings
     this.setStops = this.setStops.bind(this);
-    this.selectRoute = this.selectRoute.bind(this);
+    this.selectRouteId = this.selectRouteId.bind(this);
+    this.setRouteDirections = this.setRouteDirections.bind(this);
+    this.selectStopId = this.selectStopId.bind(this);
 
   }
 
@@ -30,12 +34,25 @@ class App extends React.Component {
    })
   }
 
-  selectRoute (e) {
+  setRouteDirections (route) {
+    this.setState({
+      routeDirections: route.attributes.direction_names
+    })
+  }
+
+  selectRouteId (e) {
     e.preventDefault();
     this.setState({
       routeSelected: e.target.value
     }, () => {
       this.setStops(e.target.value);
+    })
+  }
+
+  selectStopId (e) {
+    e.preventDefault();
+    this.setState({
+      stopSelected: e.target.value
     })
   }
 
@@ -58,8 +75,12 @@ class App extends React.Component {
         <Routes
         routes={this.state.routes}
         routeSelected={this.state.routeSelected}
-        selectRoute={this.selectRoute}
+        setRouteDirections={this.setRouteDirections}
+        selectRouteId={this.selectRouteId}
+        selectStopId={this.selectStopId}
         stops={this.state.stops}
+        routeDirections={this.state.routeDirections}
+        stopSelected={this.state.stopSelected}
         />
 
       </div>
