@@ -24,7 +24,7 @@ class App extends React.Component {
 
  // Initilization
   componentDidMount () {
-    const {getRoutes} = this.props.requests;
+    const { getRoutes } = this.props.requests;
 
     getRoutes(res => {
       this.setState({
@@ -35,10 +35,10 @@ class App extends React.Component {
 
   // Handlers
 
-  setStops (route) {
+  setStops (routeId) {
    const { getStops } = this.props.requests;
 
-   getStops(route, res => {
+   getStops(routeId, res => {
      this.setState({
        stops: res
      })
@@ -46,13 +46,15 @@ class App extends React.Component {
   }
 
   setRouteDirections (routeId) {
-    const { routes, routeSelected } = this.state.routes;
+    const { routes } = this.state;
 
-    const directions = routes.map((route) => {
-      if (routeId === routeSelected) {
-        return route.attributes.direction_names
-      } return ''
-    });
+    let directions = null;
+
+    for(let i = 0; i < routes.length; i++) {
+      if (routeId === routes[i].id) {
+        directions = routes[i].attributes.direction_names
+      }
+    }
 
     this.setState({
       routeDirections: directions
@@ -66,6 +68,7 @@ class App extends React.Component {
       routeSelected: e.target.value
     }, () => {
       this.setStops(e.target.value);
+      this.setRouteDirections(e.target.value);
     })
   }
 

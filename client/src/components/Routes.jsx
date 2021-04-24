@@ -4,7 +4,7 @@ import StopsList from './StopsList';
 const Routes = function ({routes, routeSelected, selectRouteId, stops, routeDirections, stopSelected, setRouteDirections, selectStopId}) {
 
 return stops.length === 0 ? (
-  <select value={routeSelected} onChange={selectRouteId}>
+  <select value={routeSelected} onChange={(e) => {selectRouteId(e); setRouteDirections(routeSelected)}}>
     <option value="">Select Your Route</option>
     {
       routes.map(route => (
