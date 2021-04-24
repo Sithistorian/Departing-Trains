@@ -34,12 +34,9 @@ class App extends React.Component {
     e.preventDefault();
     this.setState({
       routeSelected: e.target.value
-    }
-    // ,
-    // () => {
-    //   setStops(e.target.value);
-    // }
-    )
+    }, () => {
+      this.setStops(e.target.value);
+    })
   }
 
   //Initilization

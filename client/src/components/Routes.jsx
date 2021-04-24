@@ -9,7 +9,7 @@ return (
       routes.map(route => {
         return <option
         key={route.id}
-        value={route.attributes.long_name}>
+        value={route.id}>
         {route.attributes.long_name}
         </option>
       })
