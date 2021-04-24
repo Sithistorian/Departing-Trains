@@ -14,6 +14,7 @@ class App extends React.Component {
       routeSelected: '',
       stopSelected: '',
       directionSelected: '',
+      directionId: null
     }
     // Bindings
     this.setStops = this.setStops.bind(this);
@@ -82,9 +83,14 @@ class App extends React.Component {
   }
 
   setDirection (e) {
+    const { routeDirections } = this.state;
     e.preventDefault();
+
+    const directionId = routeDirections.indexOf(e.target.value)
+
     this.setState({
-      directionSelected: e.target.value
+      directionSelected: e.target.value,
+      directionId: directionId
     })
   }
 
