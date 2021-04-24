@@ -26,7 +26,7 @@ const getStops = function(routeID, callback) {
 
   axios(config)
   .then(function (response) {
-    callback(JSON.stringify(response.data))
+    callback(response.data.data)
   })
   .catch(function (error) {
     console.log(error);

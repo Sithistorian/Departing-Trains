@@ -8,14 +8,31 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      routes: []
+      routes: [],
+      stops: []
     }
     //bindings
+    this.setStops = this.setStops.bind(this);
 
   }
 
+  //Handlers
+
+  setStops (route) {
+   const {getStops} = this.props.requests;
+
+   getStops(route, res => {
+     this.setState({
+       stops: res
+     })
+   })
+  }
+
+  //Initilization
   componentDidMount () {
-    this.props.services.requests.getRoutes(res => {
+    const {getRoutes} = this.props.requests;
+
+    getRoutes(res => {
       this.setState({
         routes: res
       })

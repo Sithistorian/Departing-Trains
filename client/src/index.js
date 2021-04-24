@@ -8,4 +8,4 @@ import services from '../services';
 import App from './App';
 
 
-ReactDOM.render(<App services={services}/>, document.getElementById('app'));
+ReactDOM.render(<App requests={services.requests}/>, document.getElementById('app'));
