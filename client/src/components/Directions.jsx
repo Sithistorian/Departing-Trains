@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Directions = function ({ directions }) {
+const Directions = function ({ directions, directionSelected, setDirection }) {
 
-  return (
-    <select value="directionSelected" onChange={(e) => {e.preventDefault()}}>
+  return directionSelected === '' ?
+  (
+    <select value={directionSelected} onChange={setDirection}>
       <option>Select Direction</option>
       {
         directions.map(direction => <option
@@ -13,6 +14,8 @@ const Directions = function ({ directions }) {
       }
     </select>
   )
+  :
+  <div>Time till next train component</div>
 }
 
 export default Directions;
