@@ -1,4 +1,5 @@
 import React from 'react';
+import Prediction from './Prediction';
 
 const Directions = function ({ directions, directionSelected, setDirection }) {
 
@@ -15,7 +16,7 @@ const Directions = function ({ directions, directionSelected, setDirection }) {
     </select>
   )
   :
-  <div>Time till next train component</div>
+  <Prediction/>
 }
 
 export default Directions;
