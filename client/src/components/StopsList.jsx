@@ -4,16 +4,14 @@ const StopsList = function ({stops, routes, routeDirections, setRouteDirections,
 
   return routeDirections.length === 0 ?
   (
-  <select value={stopSelected} onChange={selectStopId}>
+  <select onChange={selectStopId} value={stopSelected} >
     <option>Select your departure stop</option>
     {
-     stops.map(stop => {
-       return <option
+     stops.map(stop => <option
        key={stop.id}
        value={stop.id}>
         {stop.attributes.name}
-        </option>
-     })
+        </option>)
     }
   </select>
   )

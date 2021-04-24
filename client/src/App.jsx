@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import child components
+// import child components
 import Routes from './components/Routes';
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
       stops: [],
       stopSelected: ''
     }
-    //bindings
+    // Bindings
     this.setStops = this.setStops.bind(this);
     this.selectRouteId = this.selectRouteId.bind(this);
     this.setRouteDirections = this.setRouteDirections.bind(this);
@@ -22,10 +22,21 @@ class App extends React.Component {
 
   }
 
-  //Handlers
+ // Initilization
+  componentDidMount () {
+    const {getRoutes} = this.props.requests;
+
+    getRoutes(res => {
+      this.setState({
+        routes: res
+      })
+    })
+  }
+
+  // Handlers
 
   setStops (route) {
-   const {getStops} = this.props.requests;
+   const { getStops } = this.props.requests;
 
    getStops(route, res => {
      this.setState({
@@ -34,10 +45,19 @@ class App extends React.Component {
    })
   }
 
-  setRouteDirections (route) {
+  setRouteDirections (routeId) {
+    const { routes, routeSelected } = this.state.routes;
+
+    const directions = routes.map((route) => {
+      if (routeId === routeSelected) {
+        return route.attributes.direction_names
+      } return ''
+    });
+
     this.setState({
-      routeDirections: route.attributes.direction_names
+      routeDirections: directions
     })
+
   }
 
   selectRouteId (e) {
@@ -56,16 +76,7 @@ class App extends React.Component {
     })
   }
 
-  //Initilization
-  componentDidMount () {
-    const {getRoutes} = this.props.requests;
 
-    getRoutes(res => {
-      this.setState({
-        routes: res
-      })
-    })
-  }
 
 
   render () {

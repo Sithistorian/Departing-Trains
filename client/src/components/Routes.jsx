@@ -5,18 +5,16 @@ const Routes = function ({routes, routeSelected, selectRouteId, stops, routeDire
 
 return stops.length === 0 ? (
   <select value={routeSelected} onChange={selectRouteId}>
-    <option value={''}>Select Your Route</option>
+    <option value="">Select Your Route</option>
     {
-      routes.map(route => {
-        return (
+      routes.map(route => (
         <option
         key={route.id}
         value={route.id}
         >
         {route.attributes.long_name}
         </option>
-        )
-      })
+        ))
     }
   </select>
 )
