@@ -125,6 +125,7 @@ class App extends React.Component {
         setDirection={this.setDirection}
         setPrediction={this.setPrediction}
         prediction={this.state.prediction}
+        getVehicleInfo={this.props.requests.getVehicleInfo}
         />
 
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Prediction from './Prediction';
 
-const Directions = function ({ directions, directionSelected, setDirection, setPrediction, prediction }) {
+const Directions = function ({ directions, directionSelected, setDirection, setPrediction, prediction, getVehicleInfo }) {
 
   return directionSelected === '' ?
   (
@@ -18,7 +18,7 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
     </select>
   )
   :
-  <Prediction setPrediction={setPrediction} predictions={prediction}/>
+  <Prediction setPrediction={setPrediction} predictions={prediction} getVehicleInfo={getVehicleInfo}/>
 }
 
 export default Directions;
