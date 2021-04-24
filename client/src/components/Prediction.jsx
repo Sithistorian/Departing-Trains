@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Prediction = function({ setPrediction, predictions, getVehicleInfo }) {
+const Prediction = function({ setPrediction, prediction, getVehicleInfo }) {
 
   //write a function that returns what I want to display
 
@@ -39,11 +39,11 @@ const Prediction = function({ setPrediction, predictions, getVehicleInfo }) {
 
   const predictionDisplay = function () {
 
-    let vehicleId = predictions[0].relationships.vehicle.data.id;
-    let stopId = predictions[0].relationships.stop.data.id;
-    let status = predictions[0].attributes.status;
-    let arrivalTime = predictions[0].attributes.arrival_time;
-    let departureTime = predictions[0].attributes.departure_time;
+    let vehicleId = prediction.relationships.vehicle.data.id;
+    let stopId = prediction.relationships.stop.data.id;
+    let status = prediction.attributes.status;
+    let arrivalTime = prediction.attributes.arrival_time;
+    let departureTime = prediction.attributes.departure_time;
     let seconds = getSeconds(arrivalTime)
 
     if (status !== null) {
@@ -57,14 +57,14 @@ const Prediction = function({ setPrediction, predictions, getVehicleInfo }) {
   }
 
 
-  return !predictions ? (
+  return !prediction ? (
       <form onSubmit={setPrediction}>
       <button type="submit">Submit</button>
       </form>
   )
   :
   <div>
-    { predictions.length === 0 ? 'Nothing to see here' : predictions[0].attributes.arrival_time
+    { prediction.length === 0 ? 'Nothing to see here' : prediction.attributes.arrival_time
     }
     </div>
 }

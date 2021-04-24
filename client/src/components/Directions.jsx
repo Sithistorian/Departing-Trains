@@ -18,7 +18,7 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
     </select>
   )
   :
-  <Prediction setPrediction={setPrediction} predictions={prediction} getVehicleInfo={getVehicleInfo}/>
+  <Prediction setPrediction={setPrediction} prediction={prediction} getVehicleInfo={getVehicleInfo}/>
 }
 
 export default Directions;
