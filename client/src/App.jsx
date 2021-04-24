@@ -16,7 +16,7 @@ class App extends React.Component {
     }
     // Bindings
     this.setStops = this.setStops.bind(this);
-    this.selectRouteId = this.selectRouteId.bind(this);
+    this.setRouteInfo = this.setRouteInfo.bind(this);
     this.setRouteDirections = this.setRouteDirections.bind(this);
     this.selectStopId = this.selectStopId.bind(this);
 
@@ -62,7 +62,7 @@ class App extends React.Component {
 
   }
 
-  selectRouteId (e) {
+  setRouteInfo (e) {
     e.preventDefault();
     this.setState({
       routeSelected: e.target.value
@@ -90,7 +90,7 @@ class App extends React.Component {
         routes={this.state.routes}
         routeSelected={this.state.routeSelected}
         setRouteDirections={this.setRouteDirections}
-        selectRouteId={this.selectRouteId}
+        setRouteInfo={this.setRouteInfo}
         selectStopId={this.selectStopId}
         stops={this.state.stops}
         routeDirections={this.state.routeDirections}

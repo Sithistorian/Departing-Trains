@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StopsList = function ({stops, routes, routeDirections, setRouteDirections, stopSelected, selectStopId}) {
+const StopsList = function ({stops, routeDirections, stopSelected, selectStopId}) {
 
   return routeDirections.length === 0 ?
   (
