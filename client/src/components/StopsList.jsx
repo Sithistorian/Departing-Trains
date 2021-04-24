@@ -2,7 +2,7 @@ import React from 'react';
 
 const StopsList = function ({stops, routeDirections, stopSelected, selectStopId}) {
 
-  return routeDirections.length === 0 ?
+  return stopSelected === '' ?
   (
   <select onChange={selectStopId} value={stopSelected} >
     <option>Select your departure stop</option>
