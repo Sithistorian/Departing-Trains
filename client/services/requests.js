@@ -51,13 +51,10 @@ const getPrediction = function(routeId, stopId, directionId, callback) {
 
 }
 
-// getPrediction('Green-C','place-tapst', 0, (response) => {
-//   console.log(response)
-// } )
-
 module.exports = {
 
   getRoutes,
-  getStops
+  getStops,
+  getPrediction
 
 }
