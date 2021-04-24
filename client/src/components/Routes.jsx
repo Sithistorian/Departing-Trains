@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Routes = function ({routes}) {
+const Routes = function ({routes, routeSelected, selectRoute}) {
 
 return (
-  <select>
-    <option>Select Your Route</option>
+  <select value={routeSelected} onChange={selectRoute}>
+    <option value={''}>Select Your Route</option>
     {
       routes.map(route => {
-        return <option key={route.id}>{route.attributes.long_name}</option>
+        return <option
+        key={route.id}
+        value={route.attributes.long_name}>
+        {route.attributes.long_name}
+        </option>
       })
     }
   </select>

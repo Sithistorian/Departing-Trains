@@ -9,10 +9,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       routes: [],
+      routeSelected: '',
       stops: []
     }
     //bindings
     this.setStops = this.setStops.bind(this);
+    this.selectRoute = this.selectRoute.bind(this);
 
   }
 
@@ -26,6 +28,18 @@ class App extends React.Component {
        stops: res
      })
    })
+  }
+
+  selectRoute (e) {
+    e.preventDefault();
+    this.setState({
+      routeSelected: e.target.value
+    }
+    // ,
+    // () => {
+    //   setStops(e.target.value);
+    // }
+    )
   }
 
   //Initilization
@@ -44,7 +58,11 @@ class App extends React.Component {
     return (
       <div>
 
-        <Routes routes={this.state.routes}/>
+        <Routes
+        routes={this.state.routes}
+        routeSelected={this.state.routeSelected}
+        selectRoute={this.selectRoute}
+        />
 
       </div>
     )
