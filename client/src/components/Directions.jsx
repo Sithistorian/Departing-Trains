@@ -1,11 +1,13 @@
 import React from 'react';
 import Prediction from './Prediction';
 
-const Directions = function ({ directions, directionSelected, setDirection }) {
+const Directions = function ({ directions, directionSelected, setDirection, setPrediction, prediction }) {
 
   return directionSelected === '' ?
   (
-    <select value={directionSelected} onChange={setDirection}>
+    <select
+    value={directionSelected}
+    onChange={setDirection}>
       <option>Select Direction</option>
       {
         directions.map(direction => <option
@@ -16,7 +18,7 @@ const Directions = function ({ directions, directionSelected, setDirection }) {
     </select>
   )
   :
-  <Prediction/>
+  <Prediction setPrediction={setPrediction} predictions={prediction}/>
 }
 
 export default Directions;

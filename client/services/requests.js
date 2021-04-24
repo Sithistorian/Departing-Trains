@@ -47,8 +47,6 @@ const getPrediction = function(routeId, stopId, directionId, callback) {
   .catch((error) => {
     console.log(error);
   });
-
-
 }
 
 module.exports = {

@@ -14,7 +14,8 @@ class App extends React.Component {
       routeSelected: '',
       stopSelected: '',
       directionSelected: '',
-      directionId: null
+      directionId: null,
+      prediction: null
     }
     // Bindings
     this.setStops = this.setStops.bind(this);
@@ -22,6 +23,7 @@ class App extends React.Component {
     this.setRouteDirections = this.setRouteDirections.bind(this);
     this.setStopId = this.setStopId.bind(this);
     this.setDirection = this.setDirection.bind(this);
+    this.setPrediction = this.setPrediction.bind(this);
 
   }
 
@@ -94,8 +96,17 @@ class App extends React.Component {
     })
   }
 
+  setPrediction(e) {
+    e.preventDefault(e);
+    const { routeSelected, stopSelected, directionId } = this.state;
+    const { getPrediction } = this.props.requests;
 
-
+    getPrediction(routeSelected, stopSelected, directionId, (response) => {
+      this.setState({
+        prediction: response
+      })
+    })
+  }
 
   render () {
     return (
@@ -112,6 +123,8 @@ class App extends React.Component {
         stopSelected={this.state.stopSelected}
         directionSelected={this.state.directionSelected}
         setDirection={this.setDirection}
+        setPrediction={this.setPrediction}
+        prediction={this.state.prediction}
         />
 
       </div>
