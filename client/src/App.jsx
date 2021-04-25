@@ -158,27 +158,27 @@ class App extends React.Component {
   }
 
   render () {
+    const {routes, routeSelected, setRouteDirections, stops, routeDirections, stopSelected, directionSelected, prediction, submitted, vehicleInfo} = this.state;
     return (
       <>
       <div id="app-header">MBTA Departure Finder</div>
       <div id="app-main-container">
-        <button id="app-backbutton" type="click" onClick={this.backButton}>Back</button>
+        <button id="app-backbutton" type="button" onClick={this.backButton}>Back</button>
         <Routes
-        routes={this.state.routes}
-        routeSelected={this.state.routeSelected}
-        setRouteDirections={this.setRouteDirections}
-        setRouteInfo={this.setRouteInfo}
+        stops={stops}
+        routes={routes}
+        submitted={submitted}
+        vehicleInfo={vehicleInfo}
         setStopId={this.setStopId}
-        stops={this.state.stops}
-        routeDirections={this.state.routeDirections}
-        stopSelected={this.state.stopSelected}
-        directionSelected={this.state.directionSelected}
+        stopSelected={stopSelected}
+        routeSelected={routeSelected}
+        setRouteInfo={this.setRouteInfo}
         setDirection={this.setDirection}
+        routeDirections={routeDirections}
         setPrediction={this.setPrediction}
-        prediction={this.state.prediction.length !== 0 ?
-        this.state.prediction[0] : this.state.prediction}
-        submitted={this.state.submitted}
-        vehicleInfo={this.state.vehicleInfo}
+        directionSelected={directionSelected}
+        setRouteDirections={setRouteDirections}
+        prediction={prediction.length !== 0 ? prediction[0] : prediction}
         />
       </div>
       </>
