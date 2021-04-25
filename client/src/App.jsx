@@ -27,6 +27,7 @@ class App extends React.Component {
     this.setDirection = this.setDirection.bind(this);
     this.setPrediction = this.setPrediction.bind(this);
     this.setVehicleInfo = this.setVehicleInfo.bind(this);
+    this.backButton = this.backButton.bind(this);
 
   }
 
@@ -127,10 +128,33 @@ class App extends React.Component {
     }
   }
 
+  backButton() {
+    const { submitted, directionSelected, stopSelected } = this.state;
+
+    if (submitted) {
+      this.setState({
+        prediction: [],
+        submitted: false
+      });
+      return
+    }
+    if (directionSelected) {
+      this.setState({
+        directionSelected: ''
+      });
+      return
+    }
+    if (stopSelected) {
+      this.setState({
+        stopSelected: ''
+      })
+    }
+  }
+
   render () {
     return (
-      <div>
-
+      <div id="app-main-container">
+        <button id="app-backbutton" type="click" onClick={this.backButton}></button>
         <Routes
         routes={this.state.routes}
         routeSelected={this.state.routeSelected}
@@ -143,7 +167,8 @@ class App extends React.Component {
         directionSelected={this.state.directionSelected}
         setDirection={this.setDirection}
         setPrediction={this.setPrediction}
-        prediction={this.state.prediction.length !== 0 ? this.state.prediction[0] : this.state.prediction}
+        prediction={this.state.prediction.length !== 0 ?
+        this.state.prediction[0] : this.state.prediction}
         submitted={this.state.submitted}
         vehicleInfo={this.state.vehicleInfo}
         />

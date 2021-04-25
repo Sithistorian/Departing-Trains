@@ -12,3 +12,13 @@ body {
   background-color: rgb(48, 44, 51);
   color: whitesmoke;
 }
+
+#app-main-container {
+  height: 40vh;
+  width: 60vw;
+}
+
+#app-backbutton {
+  height: 1vh;
+  width: 1vw;
+}
