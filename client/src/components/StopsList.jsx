@@ -1,7 +1,7 @@
 import React from 'react';
 import Directions from './Directions';
 
-const StopsList = function ({stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, getVehicleInfo}) {
+const StopsList = function ({stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo}) {
 
   return stopSelected === '' ?
   (
@@ -23,7 +23,8 @@ const StopsList = function ({stops, routeDirections, stopSelected, setStopId, di
   setDirection={setDirection}
   setPrediction={setPrediction}
   prediction={prediction}
-  getVehicleInfo={getVehicleInfo}/>
+  submitted={submitted}
+  vehicleInfo={vehicleInfo}/>
 }
 
 export default StopsList;

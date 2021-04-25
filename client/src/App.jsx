@@ -15,7 +15,9 @@ class App extends React.Component {
       stopSelected: '',
       directionSelected: '',
       directionId: '',
-      prediction: []
+      prediction: [],
+      submitted: false,
+      vehicleInfo: []
     }
     // Bindings
     this.setStops = this.setStops.bind(this);
@@ -24,6 +26,7 @@ class App extends React.Component {
     this.setStopId = this.setStopId.bind(this);
     this.setDirection = this.setDirection.bind(this);
     this.setPrediction = this.setPrediction.bind(this);
+    this.setVehicleInfo = this.setVehicleInfo.bind(this);
 
   }
 
@@ -103,9 +106,25 @@ class App extends React.Component {
 
     getPrediction(routeSelected, stopSelected, directionId, (response) => {
       this.setState({
-        prediction: response
-      })
+        prediction: response,
+        submitted: true
+      }, this.setVehicleInfo)
     })
+  }
+
+  setVehicleInfo() {
+    const { prediction } = this.state;
+    const { getVehicleInfo } = this.props.requests;
+
+    if (prediction.length !== 0) {
+      let vehicleId = prediction[0].relationships.vehicle.data.id;
+
+      getVehicleInfo(vehicleId, (response) => {
+        this.setState({
+          vehicleInfo: response
+        })
+      })
+    }
   }
 
   render () {
@@ -125,9 +144,9 @@ class App extends React.Component {
         setDirection={this.setDirection}
         setPrediction={this.setPrediction}
         prediction={this.state.prediction.length !== 0 ? this.state.prediction[0] : this.state.prediction}
-        getVehicleInfo={this.props.requests.getVehicleInfo}
+        submitted={this.state.submitted}
+        vehicleInfo={this.state.vehicleInfo}
         />
-
       </div>
     )
   }
