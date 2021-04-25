@@ -1,7 +1,7 @@
 import React from 'react';
 import StopsList from './StopsList';
 
-const Routes = function ({ routes, routeSelected, setRouteInfo, stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo }) {
+const Routes = function ({ routes, routeSelected, setRouteInfo, stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo, directionDestinations }) {
 
 return stops.length === 0 ? (
   <select value={routeSelected} onChange={setRouteInfo}>
@@ -31,6 +31,7 @@ stopSelected={stopSelected}
 setPrediction={setPrediction}
 routeDirections={routeDirections}
 directionSelected={directionSelected}
+directionDestinations={directionDestinations}
 />
 }
 

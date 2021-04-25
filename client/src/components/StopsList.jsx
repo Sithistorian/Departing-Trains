@@ -1,7 +1,7 @@
 import React from 'react';
 import Directions from './Directions';
 
-const StopsList = function ({stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo}) {
+const StopsList = function ({stops, routeDirections, stopSelected, setStopId, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo, directionDestinations}) {
 
   return stopSelected === '' ?
   (
@@ -25,6 +25,7 @@ const StopsList = function ({stops, routeDirections, stopSelected, setStopId, di
   directions={routeDirections}
   setPrediction={setPrediction}
   directionSelected={directionSelected}
+  directionDestinations={directionDestinations}
   />
 }
 

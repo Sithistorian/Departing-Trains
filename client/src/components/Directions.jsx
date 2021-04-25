@@ -1,10 +1,11 @@
 import React from 'react';
 import Prediction from './Prediction';
 
-const Directions = function ({ directions, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo }) {
+const Directions = function ({ directions, directionSelected, setDirection, setPrediction, prediction, submitted, vehicleInfo, directionDestinations}) {
 
   return directionSelected === '' ?
   (
+    <>
     <select
     value={directionSelected}
     onChange={setDirection}>
@@ -16,6 +17,8 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
           {direction}</option>)
       }
     </select>
+    <div id="directions-display">{`${directions[0]}Bound to ${directionDestinations[0]} or ${directions[1]}Bound to ${directionDestinations[1]}`}</div>
+    </>
   )
   :
   <>

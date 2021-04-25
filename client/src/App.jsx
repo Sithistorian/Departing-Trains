@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       routes: [],
       stops: [],
+      directionDestinations: [],
       routeDirections: [],
       routeSelected: '',
       stopSelected: '',
@@ -161,7 +162,7 @@ class App extends React.Component {
   }
 
   render () {
-    const {routes, routeSelected, setRouteDirections, stops, routeDirections, stopSelected, directionSelected, prediction, submitted, vehicleInfo} = this.state;
+    const {routes, routeSelected, setRouteDirections, stops, routeDirections, stopSelected, directionSelected, prediction, submitted, vehicleInfo, directionDestinations} = this.state;
     return (
       <>
       <div id="app-header">MBTA Departure Finder</div>
@@ -181,6 +182,7 @@ class App extends React.Component {
         setPrediction={this.setPrediction}
         directionSelected={directionSelected}
         setRouteDirections={setRouteDirections}
+        directionDestinations={directionDestinations}
         prediction={prediction.length !== 0 ? prediction[0] : prediction}
         />
       </div>
