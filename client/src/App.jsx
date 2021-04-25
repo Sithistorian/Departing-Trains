@@ -58,15 +58,18 @@ class App extends React.Component {
     const { routes } = this.state;
 
     let directions = null;
+    let directionDestinations = null;
 
     for(let i = 0; i < routes.length; i++) {
       if (routeId === routes[i].id) {
-        directions = routes[i].attributes.direction_names
+        directions = routes[i].attributes.direction_names;
+        directionDestinations = routes[i].attributes.direction_destinations;
       }
     }
 
     this.setState({
-      routeDirections: directions
+      routeDirections: directions,
+      directionDestinations
     })
 
   }

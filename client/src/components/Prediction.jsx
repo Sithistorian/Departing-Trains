@@ -23,14 +23,14 @@ const Prediction = function({ setPrediction, prediction, submitted, vehicleInfo}
 
   const predictionDisplay = function () {
 
-    let stopId = prediction.relationships.stop.data.id;
-    let status = prediction.attributes.status;
-    let arrivalTime = prediction.attributes.arrival_time;
-    let departureTime = prediction.attributes.departure_time;
-    let vehicleStatus = vehicleInfo.attributes.current_status;
-    let vehicleStop = vehicleInfo.relationships.stop.data.id;
-    let seconds = arrivalTime === null ? getSeconds(departureTime) : getSeconds(arrivalTime);
-    let minutes = Math.round(seconds/60);
+    const stopId = prediction.relationships.stop.data.id;
+    const {status} = prediction.attributes;
+    const arrivalTime = prediction.attributes.arrival_time;
+    const departureTime = prediction.attributes.departure_time;
+    const vehicleStatus = vehicleInfo.attributes.current_status;
+    const vehicleStop = vehicleInfo.relationships.stop.data.id;
+    const seconds = arrivalTime === null ? getSeconds(departureTime) : getSeconds(arrivalTime);
+    const minutes = Math.round(seconds/60);
 
     if (status !== null) {
           return <div>{status}</div>
@@ -60,10 +60,15 @@ const Prediction = function({ setPrediction, prediction, submitted, vehicleInfo}
       <button type="submit">Submit</button>
       </form>
   :
-  <div>
+  <>
+      <form onSubmit={setPrediction}>
+      <button type="submit">Submit</button>
+      </form>
+      <div id="prediction-display">
     { prediction.length === 0 || vehicleInfo.length === 0 ? 'Nothing to see here' : predictionDisplay()
     }
-    </div>
+  </div>
+  </>
 }
 
 export default Prediction;

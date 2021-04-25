@@ -18,13 +18,14 @@ const StopsList = function ({stops, routeDirections, stopSelected, setStopId, di
   )
   :
   <Directions
-  directions={routeDirections}
-  directionSelected={directionSelected}
-  setDirection={setDirection}
-  setPrediction={setPrediction}
-  prediction={prediction}
   submitted={submitted}
-  vehicleInfo={vehicleInfo}/>
+  prediction={prediction}
+  vehicleInfo={vehicleInfo}
+  setDirection={setDirection}
+  directions={routeDirections}
+  setPrediction={setPrediction}
+  directionSelected={directionSelected}
+  />
 }
 
 export default StopsList;

@@ -48,18 +48,31 @@ body {
 }
 
 #app-backbutton {
-  height: 20px;
+  height: 30px;
+  width: 50px;
+
+  background-color: var(--bg-color);
+  color: black;
+}
+
+#app-backbutton:hover {
+  height: 30px;
   width: 50px;
 
   background-color: var(--accent);
   color: var(--bg-color);
+  cursor: pointer;
 }
 
-#app-backbutton:hover {
-  height: 20px;
-  width: 50px;
+#prediction-display {
+  font-size: 50px;
+  text-align: center;
+  color: var(--secondary);
+}
 
+select {
   background-color: var(--bg-color);
-  color: var(--accent);
-  cursor: pointer;
+
+  height: 30px;
+  width: 175px;
 }

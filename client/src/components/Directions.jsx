@@ -18,12 +18,26 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
     </select>
   )
   :
+  <>
+  <select
+  value={directionSelected}
+  onChange={setDirection}>
 
+    <option>Select Direction</option>
+    {
+      directions.map(direction => <option
+        key={direction}
+        value={direction}>
+        {direction}</option>)
+    }
+  </select>
   <Prediction
-  setPrediction={setPrediction}
-  prediction={prediction}
   submitted={submitted}
-  vehicleInfo={vehicleInfo}/>
+  prediction={prediction}
+  vehicleInfo={vehicleInfo}
+  setPrediction={setPrediction}
+  />
+  </>
 }
 
 export default Directions;
