@@ -14,8 +14,8 @@ class App extends React.Component {
       routeSelected: '',
       stopSelected: '',
       directionSelected: '',
-      directionId: null,
-      prediction: null
+      directionId: '',
+      prediction: []
     }
     // Bindings
     this.setStops = this.setStops.bind(this);
@@ -124,7 +124,7 @@ class App extends React.Component {
         directionSelected={this.state.directionSelected}
         setDirection={this.setDirection}
         setPrediction={this.setPrediction}
-        prediction={this.state.prediction ? this.state.prediction[0] : this.state.prediction}
+        prediction={this.state.prediction.length !== 0 ? this.state.prediction[0] : this.state.prediction}
         getVehicleInfo={this.props.requests.getVehicleInfo}
         />
 
