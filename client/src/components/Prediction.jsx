@@ -31,7 +31,6 @@ const Prediction = function({ setPrediction, prediction, submitted, vehicleInfo}
     let vehicleStop = vehicleInfo.relationships.stop.data.id;
     let seconds = arrivalTime === null ? getSeconds(departureTime) : getSeconds(arrivalTime);
     let minutes = Math.round(seconds/60);
-    console.log(getSeconds(arrivalTime), 'seconds:', seconds, 'minutes:', minutes)
 
     if (status !== null) {
           return <div>{status}</div>
