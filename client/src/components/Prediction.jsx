@@ -3,44 +3,44 @@ import React from 'react';
 const Prediction = function({ setPrediction, prediction, submitted, vehicleInfo}) {
 
   const getSeconds = function (arrivalTime){
+    const arrival = new Date(arrivalTime);
     const currentDate = new Date;
 
-    let arrivalSeconds = arrivalTime.substring(11)
-    arrivalSeconds = arrivalSeconds.split('-');
-    arrivalSeconds.pop()
-    arrivalSeconds = arrivalSeconds[0];
-    arrivalSeconds = arrivalSeconds.split(':')
+    let hours = arrival.getHours();
+    let minutes = arrival.getMinutes();
+    let seconds = arrival.getSeconds();
 
-    let hours = parseInt(arrivalSeconds[0], 10)
-    let minutes = parseInt(arrivalSeconds[1], 10)
-    let seconds = parseInt(arrivalSeconds[2], 10)
-
-    arrivalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+    const arrivalSeconds = (hours * 3600) + (minutes * 60) + seconds;
 
     hours = currentDate.getHours();
     minutes = currentDate.getMinutes();
-    seconds = currentDate.getMinutes();
+    seconds = currentDate.getSeconds();
 
-    let currentSeconds = (hours * 3600) + (minutes * 60) + seconds
+    const currentSeconds = (hours * 3600) + (minutes * 60) + seconds
 
-    return currentSeconds - arrivalSeconds;
+    return arrivalSeconds - currentSeconds;
   }
 
   const predictionDisplay = function () {
-debugger;
+
     let stopId = prediction.relationships.stop.data.id;
     let status = prediction.attributes.status;
     let arrivalTime = prediction.attributes.arrival_time;
     let departureTime = prediction.attributes.departure_time;
     let vehicleStatus = vehicleInfo.attributes.current_status;
     let vehicleStop = vehicleInfo.relationships.stop.data.id;
-    let seconds = getSeconds(arrivalTime);
+    let seconds = arrivalTime === null ? getSeconds(departureTime) : getSeconds(arrivalTime);
+    let minutes = Math.round(seconds/60);
+    console.log(getSeconds(arrivalTime), 'seconds:', seconds, 'minutes:', minutes)
 
-        if (status !== null) {
+    if (status !== null) {
           return <div>{status}</div>
         }
-        if (departureTime === null || seconds < 0) {
-          return <div>Just missed the train sorry</div>
+        if (departureTime === null) {
+          return <div>Sorry this is the last stop in that direction</div>
+        }
+        if (seconds < 0) {
+          return <div>Oh you missed your ride!</div>
         }
         if (seconds <= 90 && vehicleStatus === 'STOPPED_AT' && stopId === vehicleStop) {
           return <div>Boarding</div>
@@ -51,7 +51,6 @@ debugger;
         if (seconds <= 60) {
           return <div>Approaching</div>
         }
-        let minutes = Math.round(seconds/60);
         if (minutes < 20) {
           return <div>{minutes} minutes</div>
         } return <div>20+ minutes</div>
@@ -63,7 +62,7 @@ debugger;
       </form>
   :
   <div>
-    { prediction.length === 0 ? 'Nothing to see here' : predictionDisplay()
+    { prediction.length === 0 || vehicleInfo.length === 0 ? 'Nothing to see here' : predictionDisplay()
     }
     </div>
 }
