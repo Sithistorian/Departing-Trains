@@ -17,7 +17,7 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
           {direction}</option>)
       }
     </select>
-    <div id="directions-display">{`${directions[0]}Bound to ${directionDestinations[0]} or ${directions[1]}Bound to ${directionDestinations[1]}`}</div>
+    <div id="directions-display">{`${directions[0]} to ${directionDestinations[0]} or ${directions[1]} to ${directionDestinations[1]}`}</div>
     </>
   )
   :
@@ -34,6 +34,8 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
         {direction}</option>)
     }
   </select>
+
+  <div id="directions-display">{`${directions[0]} to ${directionDestinations[0]} or ${directions[1]} to ${directionDestinations[1]}`}</div>
   <Prediction
   submitted={submitted}
   prediction={prediction}

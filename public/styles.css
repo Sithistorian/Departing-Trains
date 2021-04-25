@@ -1,7 +1,7 @@
 :root {
   --bg-color: rgb(242, 229, 247);
   --secondary: #6f42c1;
-  --accent: rgb(153, 143, 157);
+  --accent: rgb(167, 158, 171);
 }
 
 * {
@@ -38,6 +38,10 @@ body {
 }
 
 #app-main-container {
+  display: grid;
+  grid-template-columns: repeat(10, 2fr);
+  grid-template-rows: repeat(5, 2fr);
+
   height: 40vh;
   width: 60vw;
 
@@ -58,31 +62,81 @@ body {
 
   background-color: var(--bg-color);
   color: black;
+  margin: 5px;
 }
 
 #app-backbutton:hover {
   height: 30px;
   width: 50px;
 
-  background-color: var(--accent);
+  background-color: var(--secondary);
   color: var(--bg-color);
   cursor: pointer;
+  margin: 5px;
 }
 
 #prediction-display {
   font-size: 50px;
   text-align: center;
   color: var(--secondary);
+
+  grid-column-start: 2;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  grid-row-end: 5;
 }
 
 select {
   background-color: var(--bg-color);
+  border: thick;
   height: 30px;
   width: 175px;
+  margin: 5px;
+
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 #directions-display {
+  position: relative;
+  top: 10%;
   font-size: 30px;
   text-align: center;
   color: var(--secondary);
+
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#prediction-button {
+  height: 30px;
+  width: 60px;
+
+  background-color: var(--bg-color);
+  color: black;
+  margin: 5px;
+
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+#prediction-button:hover {
+  height: 30px;
+  width: 60px;
+
+  background-color: var(--secondary);
+  color: var(--bg-color);
+  cursor: pointer;
+  margin: 5px;
+
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }

@@ -57,15 +57,15 @@ const Prediction = function({ setPrediction, prediction, submitted, vehicleInfo}
 
   return !submitted ?
       <form onSubmit={setPrediction}>
-      <button type="submit">Submit</button>
+      <button type="submit" id="prediction-button">Submit</button>
       </form>
   :
   <>
       <form onSubmit={setPrediction}>
-      <button type="submit">Submit</button>
+      <button type="submit" id="prediction-button">Submit</button>
       </form>
       <div id="prediction-display">
-    { prediction.length === 0 || vehicleInfo.length === 0 ? 'Nothing to see here' : predictionDisplay()
+    { prediction.length === 0 || vehicleInfo.length === 0 ? 'No Service' : predictionDisplay()
     }
   </div>
   </>
