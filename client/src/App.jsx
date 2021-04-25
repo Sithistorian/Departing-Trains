@@ -96,7 +96,7 @@ class App extends React.Component {
 
     this.setState({
       directionSelected: e.target.value,
-      directionId: directionId
+      directionId
     })
   }
 
@@ -118,7 +118,7 @@ class App extends React.Component {
     const { getVehicleInfo } = this.props.requests;
 
     if (prediction.length !== 0) {
-      let vehicleId = prediction[0].relationships.vehicle.data.id;
+      const vehicleId = prediction[0].relationships.vehicle.data.id;
 
       getVehicleInfo(vehicleId, (response) => {
         this.setState({
@@ -129,7 +129,7 @@ class App extends React.Component {
   }
 
   backButton() {
-    const { submitted, directionSelected, stopSelected } = this.state;
+    const { submitted, directionSelected, stopSelected, stops } = this.state;
 
     if (submitted) {
       this.setState({
@@ -147,14 +147,22 @@ class App extends React.Component {
     if (stopSelected) {
       this.setState({
         stopSelected: ''
-      })
+      });
+      return
+    }
+    if (0 < stops.length) {
+      this.setState({
+        stops: []
+      });
     }
   }
 
   render () {
     return (
+      <>
+      <div id="app-header">MBTA Departure Finder</div>
       <div id="app-main-container">
-        <button id="app-backbutton" type="click" onClick={this.backButton}></button>
+        <button id="app-backbutton" type="click" onClick={this.backButton}>Back</button>
         <Routes
         routes={this.state.routes}
         routeSelected={this.state.routeSelected}
@@ -173,6 +181,7 @@ class App extends React.Component {
         vehicleInfo={this.state.vehicleInfo}
         />
       </div>
+      </>
     )
   }
 

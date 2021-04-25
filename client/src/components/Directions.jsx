@@ -18,6 +18,7 @@ const Directions = function ({ directions, directionSelected, setDirection, setP
     </select>
   )
   :
+
   <Prediction
   setPrediction={setPrediction}
   prediction={prediction}

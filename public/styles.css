@@ -1,3 +1,9 @@
+:root {
+  --bg-color: rgb(242, 229, 247);
+  --secondary: rgb(160, 5, 184);
+  --accent: rgb(153, 143, 157);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,16 +15,39 @@ html {
 }
 
 body {
-  background-color: rgb(48, 44, 51);
-  color: whitesmoke;
+  background-color: var(--bg-color);
+}
+
+#app-header {
+  height: 80px;
+  width: 100vw;
+
+  /* Position */
+  position: fixed;
+  text-align: center;
+
+  /* Colors */
+  background-color: var(--secondary);
+  color: var(--bg-color);
+
+  /* Text */
+  font-size: 50px;
 }
 
 #app-main-container {
   height: 40vh;
   width: 60vw;
+
+  /* Postion */
+  position: fixed;
+  bottom: 40%;
+  left: 20%;
+
+  /* Colors */
+  background-color: var(--accent);
 }
 
 #app-backbutton {
-  height: 1vh;
-  width: 1vw;
+  height: 20px;
+  width: 50px;
 }
