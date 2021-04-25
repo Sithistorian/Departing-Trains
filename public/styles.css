@@ -1,6 +1,6 @@
 :root {
   --bg-color: rgb(242, 229, 247);
-  --secondary: rgb(160, 5, 184);
+  --secondary: #6f42c1;
   --accent: rgb(153, 143, 157);
 }
 
@@ -32,6 +32,9 @@ body {
 
   /* Text */
   font-size: 50px;
+
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+    0 3px 14px 2px rgb(0 0 0 / 12%);
 }
 
 #app-main-container {
@@ -45,6 +48,8 @@ body {
 
   /* Colors */
   background-color: var(--accent);
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+    0 3px 14px 2px rgb(0 0 0 / 12%);
 }
 
 #app-backbutton {
@@ -72,7 +77,12 @@ body {
 
 select {
   background-color: var(--bg-color);
-
   height: 30px;
   width: 175px;
+}
+
+#directions-display {
+  font-size: 30px;
+  text-align: center;
+  color: var(--secondary);
 }
