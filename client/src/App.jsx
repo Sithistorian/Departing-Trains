@@ -1,4 +1,5 @@
 import React from 'react';
+import services from '../services';
 
 // import child components
 import Routes from './components/Routes';
@@ -34,7 +35,7 @@ class App extends React.Component {
 
  // Initilization
   componentDidMount () {
-    const { getRoutes } = this.props.requests;
+    const { getRoutes } = services.requests;
 
     getRoutes(res => {
       this.setState({
@@ -46,7 +47,7 @@ class App extends React.Component {
   // Handlers
 
   setStops (routeId) {
-   const { getStops } = this.props.requests;
+   const { getStops } = services.requests;
 
    getStops(routeId, res => {
      this.setState({
@@ -107,7 +108,7 @@ class App extends React.Component {
   setPrediction(e) {
     e.preventDefault(e);
     const { routeSelected, stopSelected, directionId } = this.state;
-    const { getPrediction } = this.props.requests;
+    const { getPrediction } = services.requests;
 
     getPrediction(routeSelected, stopSelected, directionId, (response) => {
       this.setState({
@@ -119,7 +120,7 @@ class App extends React.Component {
 
   setVehicleInfo() {
     const { prediction } = this.state;
-    const { getVehicleInfo } = this.props.requests;
+    const { getVehicleInfo } = services.requests;
 
     if (prediction.length !== 0) {
       const vehicleId = prediction[0].relationships.vehicle.data.id;

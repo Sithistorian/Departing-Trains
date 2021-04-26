@@ -5,7 +5,7 @@ const Routes = function ({ routes, routeSelected, setRouteInfo, stops, routeDire
 
 return stops.length === 0 ? (
   <select value={routeSelected} onChange={setRouteInfo}>
-    <option value="">Select Your Route</option>
+    <option value="Select Your Route">Select Your Route</option>
     {
       routes.map(route => (
         <option
