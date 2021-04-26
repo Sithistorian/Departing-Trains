@@ -3,6 +3,7 @@
 
 # Dependency directories
 node_modules/
+coverage/
 
 # Bundles
 /public/bundle.js
